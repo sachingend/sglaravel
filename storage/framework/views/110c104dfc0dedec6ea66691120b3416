@@ -1,0 +1,25 @@
+<div class="portlet box blue add-form-main">
+    <div class="portlet-title togglelable">
+        <div class="caption">
+            <i class="fa fa-plus"></i><?php echo trans('admin::messages.add-name',['name'=>trans('admin::controller/menu-group.add_new_group')]); ?> 
+        </div>
+        <div class="tools">
+            <a href="javascript:;" class="expand box-expand-form"></a>
+        </div>
+    </div>
+    <div class="portlet-body form display-hide">
+        <?php echo Form::open(['route' => ['admin.menu-group.store'], 'method' => 'post', 'class' => 'form-horizontal menu-group-form',  'id' => 'create-menugroup', 'msg' => trans('admin::messages.added',['name'=>trans('admin::controller/menu-group.add_new_group')]) ]); ?>
+
+        <?php echo $__env->make('admin::menu-group.form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <div class="form-actions">
+            <div class="col-md-6">
+                <div class="col-md-offset-6 col-md-9">
+                    <button type="submit" class="btn green"><?php echo trans('admin::messages.submit'); ?></button>
+                    <button type="button" class="btn default btn-collapse btn-collapse-form"><?php echo trans('admin::messages.cancel'); ?></button>
+                </div>
+            </div>
+        </div>
+        <?php echo Form::close(); ?>
+
+    </div>
+</div>

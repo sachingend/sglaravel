@@ -1,0 +1,32 @@
+<div class="portlet box blue add-form-main">
+    <div class="portlet-title toggleable">
+        <div class="caption">
+            <i class="fa fa-plus"></i><?php echo trans('admin::controller/system-email.system-email-details'); ?>
+
+        </div>
+        <div class="tools">
+                <a href="javascript:;" class="expand box-expand-form"></a>
+        </div>
+    </div>
+    <div class="portlet-body form display-hide">
+        <?php echo Form::open(['route' => ['admin.system-emails.store'], 'method' => 'post', 'class' => 'form-horizontal system-email-form',  'id' => 'create-system-email', 'msg' => trans('admin::messages.added',['name'=>trans('admin::controller/system-email.system-email')]) ]); ?>
+
+        <?php echo $__env->make('admin::system-email.form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <div class="row form-actions">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-9">
+                            <button class="btn green" type="submit"><?php echo trans('admin::messages.submit'); ?></button>
+                            <button class="btn default btn-collapse" type="button"><?php echo trans('admin::messages.cancel'); ?></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
+        <?php echo Form::close(); ?>
+
+    </div>
+</div>

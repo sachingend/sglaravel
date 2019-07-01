@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    <head>
+        <meta charset="utf-8"/>
+        <title> <?php echo $__env->yieldContent('title', 'Administrator'); ?> | demo Solutions Pvt. Ltd.</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta content="" name="description"/>
+        <meta content="" name="author"/>
+        <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
+        <link rel="shortcut icon" href="favicon.ico"/>
+        <?php echo HTML::style('http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all'); ?>
+
+        <?php echo HTML::style( URL::asset('global/plugins/font-awesome/css/font-awesome.min.css') ); ?>
+
+        <?php echo HTML::style( URL::asset('global/plugins/bootstrap/css/bootstrap.min.css') ); ?>
+
+        <?php echo HTML::style( URL::asset('css/admin/login.css') ); ?>
+
+        <?php echo HTML::style( URL::asset('global/css/components-md.css') ); ?>
+
+        <?php /* HTML::style( URL::asset('assets/global/css/plugins-md.css') ) */ ?>
+        <?php /* HTML::style( URL::asset('admintheme/layout/css/layout.css') ) */ ?>
+        <?php /* HTML::style( URL::asset('admintheme/layout/css/themes/default.css') ) */ ?>
+        <?php echo $__env->yieldContent('global-level-styles'); ?>
+        <?php echo $__env->yieldContent('page-level-styles'); ?>
+        <?php echo $__env->yieldContent('template-level-styles'); ?>
+        <?php echo $__env->yieldContent('styles'); ?>
+        <?php echo HTML::style( URL::asset('css/admin/default-admin.css') ); ?>
+
+    </head>
+    <body class="page-md login">
+        <div class="logo logo-bg">
+            <img src="<?php echo URL::asset('images/logo.png'); ?>" alt="demo solutions pvt ltd"/>
+        </div>
+        <div class="content">
+            <?php echo $__env->yieldContent('content'); ?>
+        </div>
+        <div class="copyright">
+            <?php echo date('Y'); ?> &copy; demo Solutions Pvt. Ltd.
+        </div>
+        <script>
+            var adminUrl = '<?php echo URL::to("/admin"); ?>';
+        </script>
+        <?php echo HTML::script( URL::asset('js/siteobj.js') ); ?>
+
+        <!--[if lt IE 9]>
+        <?php echo HTML::script( URL::asset('global/plugins/respond.min.js') ); ?>
+
+        <?php echo HTML::script( URL::asset('global/plugins/excanvas.min.js') ); ?>
+
+        <![endif]-->
+        <?php echo HTML::script( URL::asset('global/plugins/jquery.min.js') ); ?>
+
+        <?php echo HTML::script( URL::asset('global/plugins/jquery-migrate.min.js') ); ?>
+
+        <!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+        <?php echo HTML::script( URL::asset('global/plugins/jquery-ui/jquery-ui.min.js') ); ?>
+
+        <?php echo HTML::script( URL::asset('global/plugins/bootstrap/js/bootstrap.min.js') ); ?>
+
+        <?php echo HTML::script( URL::asset('global/scripts/metronic.js') ); ?>
+
+        <?php echo HTML::script( URL::asset('js/admin/common.js') ); ?>
+
+        <?php echo $__env->yieldContent('global-level-scripts'); ?>
+        <?php echo $__env->yieldContent('page-level-scripts'); ?>
+        <?php echo $__env->yieldContent('template-level-scripts'); ?>
+        <?php echo $__env->yieldContent('scripts'); ?>
+    </body>
+</html>

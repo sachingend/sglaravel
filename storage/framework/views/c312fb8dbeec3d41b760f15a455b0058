@@ -1,0 +1,26 @@
+<div class="portlet box blue add-form-main">
+    <div class="portlet-title togglelable">
+        <div class="caption">
+            <i class="fa fa-plus"></i><?php echo trans('admin::messages.add-name',['name'=>trans('admin::controller/blog_comments.blog_comment')]); ?> 
+        </div>
+        <div class="tools">
+            <a href="javascript:;" class="expand box-expand-form"></a>
+        </div>
+    </div>
+    <div class="portlet-body form display-hide">
+        <?php echo Form::open(['route' => ['admin.blog_comments.store'], 'method' => 'post', 'class' => 'form-horizontal blog-comment-form',  'id' => 'create-blog-comment', 'msg' => 'Blog comment added successfully.']); ?>
+
+        <?php echo $__env->make('admin::blog_comments.form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <input type="hidden" name="blog_id" id="blog_name_id" value="<?php echo e($blog_id); ?>"/>
+        <div class="form-actions">
+            <div class="col-md-6">
+                <div class="col-md-offset-6 col-md-9">
+                    <button type="submit" class="btn green"><?php echo trans('admin::messages.save'); ?></button>
+                    <button type="button" class="btn default btn-collapse btn-collapse-form-edit"><?php echo trans('admin::messages.cancel'); ?></button>
+                </div>
+            </div>
+        </div>
+        <?php echo Form::close(); ?>
+
+    </div>
+</div>

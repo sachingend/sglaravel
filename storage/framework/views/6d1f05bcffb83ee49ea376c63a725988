@@ -1,0 +1,107 @@
+<?php $__env->startSection('page-level-styles'); ?>
+@parent
+<?php echo HTML::style( URL::asset('global/plugins/select2/select2.css') ); ?>
+
+<?php echo HTML::style( URL::asset('global/plugins/bootstrap-fileinput/bootstrap-fileinput.css') ); ?>
+
+<?php echo HTML::style( URL::asset('admintheme/pages/css/profile.css') ); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('page-level-scripts'); ?>
+@parent
+<?php echo HTML::script( URL::asset('global/plugins/select2/select2.min.js') ); ?>
+
+<?php echo HTML::script( URL::asset('global/plugins/bootstrap-fileinput/bootstrap-fileinput.js') ); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('template-level-scripts'); ?>
+@parent
+<?php echo HTML::script( URL::asset('js/admin/my-profile.js') ); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('scripts'); ?>
+@parent
+<script>
+    jQuery(document).ready(function () {
+        siteObjJs.admin.myProfileJs.init();
+        siteObjJs.admin.myProfileJs.confirmRemoveImage = "<?php echo trans('admin::messages.confirm-remove-image'); ?>";
+        siteObjJs.admin.myProfileJs.maxFileSize = "<?php echo trans('admin::messages.max-file-size'); ?>";
+        siteObjJs.admin.myProfileJs.mimes = "<?php echo trans('admin::messages.mimes'); ?>";
+    });
+</script>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="page-head">
+    <div class="page-title">
+        <h1>My Profile</h1>
+    </div>
+</div>
+<ul class="page-breadcrumb breadcrumb">
+    <li><a href="<?php echo URL::to('/admin'); ?>"><?php echo trans('admin::controller/myprofile.admin'); ?></a><i class="fa fa-circle"></i></li>
+    <li><span class="text-muted"><?php echo trans('admin::controller/myprofile.my-profile'); ?></span></li>
+</ul>
+
+<div id="ajax-response-text">
+
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="profile-sidebar" style="width:250px;" id="username-avatar">
+            <?php echo $__env->make('admin::myprofile.username_avatar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        </div>
+
+        <div class="profile-content profile-form-container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="portlet light">
+                        <div class="portlet-title tabbable-line">
+                            <div class="caption caption-md">
+                                <i class="icon-globe theme-font hide"></i>
+                                <span class="caption-subject font-blue-madison bold uppercase"><?php echo trans('admin::controller/myprofile.profile-account'); ?></span>
+                            </div>
+                            <ul class="nav nav-tabs">
+                                <li class="tab personal-info active">
+                                    <a href="#personal-info" data-toggle="tab"><?php echo trans('admin::controller/myprofile.personal-info'); ?></a>
+                                </li>
+                                <li class="tab change-avatar">
+                                    <a href="#change-avatar" data-toggle="tab"><?php echo trans('admin::controller/myprofile.change-picture'); ?></a>
+                                </li>
+                                <li class="tab change-password">
+                                    <a href="#change-password" data-toggle="tab"><?php echo trans('admin::controller/myprofile.change-password'); ?></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="portlet-body form-body">
+                            <div class="tab-content">
+                                <!-- PERSONAL INFO TAB -->
+                                <div class="tab-pane active" id="personal-info">
+                                    <?php echo $__env->make('admin::myprofile.edit_info', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                                </div>
+                                <!-- END PERSONAL INFO TAB -->
+                                <!-- CHANGE AVATAR TAB -->
+                                <div class="tab-pane" id="change-avatar">
+                                    <?php echo $__env->make('admin::myprofile.change_picture', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                                </div>
+                                <!-- END CHANGE AVATAR TAB -->
+                                <!-- CHANGE PASSWORD TAB -->
+                                <div class="tab-pane" id="change-password">
+                                    <?php echo $__env->make('admin::myprofile.change_password', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                                </div>
+                                <!-- END CHANGE PASSWORD TAB -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin::layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

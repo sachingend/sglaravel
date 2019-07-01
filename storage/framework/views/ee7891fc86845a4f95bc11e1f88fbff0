@@ -1,0 +1,48 @@
+<?php if(!empty(Auth::user()->hasEdit) || (!empty(Auth::user()->hasOwnEdit) && ($systemEmail->created_by == Auth::user()->id))): ?>
+<div class="portlet box yellow-gold edit-form-main">
+    <?php else: ?>
+    <div class="portlet box blue edit-form-main">
+        <?php endif; ?>
+        <div class="portlet-title toggleable">
+            <div class="caption">
+                <i class="fa fa-plus"></i><?php echo trans('admin::controller/system-email.system-email-details'); ?>
+
+            </div>
+            <div class="tools">
+                <a href="javascript:;" class="collapse box-expand-form"></a>
+            </div>
+        </div>
+        <div class="portlet-body form">
+            <?php echo Form::model($systemEmail, ['route' => ['admin.system-emails.update', $systemEmail->id], 'method' => 'put', 'class' => 'form-horizontal panel system-email-form','id'=>'edit-system-email', 'msg' => trans('admin::messages.updated',['name'=>trans('admin::controller/system-email.system-email')]) ]); ?>
+
+            <?php echo Form::hidden('id', $systemEmail->id); ?>
+
+            <?php echo $__env->make('admin::system-email.form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <div class="row form-group">
+                <label class="control-label col-md-2"><?php echo trans('admin::controller/system-email.status'); ?><span class="required" aria-required="true">*</span></label>
+                <div class="col-md-10">
+                    <div class="radio-list">
+                        <label class="radio-inline"><?php echo Form::radio('status', '1', true); ?> <?php echo trans('admin::messages.active'); ?></label>
+                        <label class="radio-inline"><?php echo Form::radio('status', '0'); ?> <?php echo trans('admin::messages.inactive'); ?></label>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-actions">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">
+                                <?php if(!empty(Auth::user()->hasEdit) || (!empty(Auth::user()->hasOwnEdit) && ($systemEmail->created_by == Auth::user()->id))): ?> 
+                                <button class="btn green" type="submit"><?php echo trans('admin::messages.save'); ?></button>
+                                <?php endif; ?>
+                                <button class="btn default btn-collapse" type="button"><?php echo trans('admin::messages.cancel'); ?></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>

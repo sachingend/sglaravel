@@ -1,0 +1,35 @@
+<div class="form-body">
+    <div class="form-group">
+        <label class="col-md-3 control-label">{!! trans('admin::controller/blog.blog_name') !!} <span class="required" aria-required="true">*</span></label>
+        <div class="col-md-4">
+            {!! Form::text('blog_name', null, ['minlength'=>2,'class'=>'form-control', 'id'=>'blog_name','data-rule-required'=>'true', 'data-msg-required'=>'Please enter Blog Name.', 'data-rule-maxlength'=>'200', 'data-msg-maxlength'=>'Name may not have more than {0} letters.', 'maxlength'=>'200' , 'data-msg-minlength'=>trans('admin::messages.error-minlength', ['name' => trans('admin::controller/blog.blog name')]) ])!!}
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-3 control-label">{!! trans('admin::controller/blog.blog_seo_string') !!}  <span class="required" aria-required="true">*</span></label>
+        <div class="col-md-4">
+            {!! Form::text('blog_seo_string', null, ['minlength'=>2,'class'=>'form-control', 'id'=>'blog_seo_string','data-rule-required'=>'true', 'data-msg-required'=>'Please enter Blog SEO string.', 'data-rule-maxlength'=>'200', 'data-msg-maxlength'=>'String may not have more than {0} letters.', 'maxlength'=>'200' , 'data-msg-minlength'=>trans('admin::messages.error-minlength', ['name' => trans('admin::controller/blog.blog seo string')]) ])!!}
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-3 control-label">{!! trans('admin::controller/blog.blog_short_desc') !!}  <span class="required" aria-required="true">*</span></label>
+        <div class="col-md-4">
+            {!! Form::text('blog_short_desc', null, ['minlength'=>2,'class'=>'form-control', 'id'=>'blog_short_desc','data-rule-required'=>'true', 'data-msg-required'=>'Please enter Blog Short Description.', 'data-rule-maxlength'=>'200', 'data-msg-maxlength'=>'Blog short description may not have more than {0} letters.', 'maxlength'=>'200' , 'data-msg-minlength'=>trans('admin::messages.error-minlength', ['name' => trans('admin::controller/blog.blog short description')]) ])!!}
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-3 control-label">{!! trans('admin::controller/blog.blog_desc') !!}  <span class="required" aria-required="true">*</span></label>
+        <div class="col-md-4">
+            {!! Form::textarea('blog_desc', null, ['class'=>'editme form-control']) !!}
+        </div>    
+    </div>    
+    <div class="form-group">
+        <label class="col-md-3 control-label">{!! trans('admin::controller/blog.status') !!}  </label>
+        <div class="col-md-4">
+            <div class="radio-list">
+                <label class="radio-inline">{!! Form::radio('status', '1', true) !!} {!! trans('admin::messages.active') !!}</label>
+                <label class="radio-inline">{!! Form::radio('status', '0') !!} {!! trans('admin::messages.inactive') !!}</label>
+            </div>
+        </div>
+    </div>
+</div>

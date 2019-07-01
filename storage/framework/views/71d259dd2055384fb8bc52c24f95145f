@@ -1,0 +1,14 @@
+<?php /**/ $userinfo = \Modules\Admin\Services\Helper\UserInfoHelper::getAuthUserInfo() /**/ ?>
+<div class="portlet light profile-sidebar-portlet">
+    <div class="profile-userpic">
+        <?php if(!empty($userinfo->avatar)): ?>
+        <img src="<?php echo e(URL::asset('img/'.$userinfo->id.'/'.$userinfo->avatar)); ?>" class="img-responsive" alt="" />
+        <?php else: ?>
+        <img src="<?php echo e(URL::asset('images/default-user-icon-profile.png ')); ?>" class="img-responsive" alt="" />
+        <?php endif; ?>
+    </div>
+    <div class="profile-usertitle">
+        <div class="profile-usertitle-name"><?php echo e($userinfo->first_name); ?> (<?php echo e($userinfo->username); ?>)</div>
+    </div>
+    <br />
+</div>

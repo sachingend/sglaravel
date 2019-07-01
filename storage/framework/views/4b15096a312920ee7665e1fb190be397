@@ -1,0 +1,7 @@
+<?php /**/ $userinfo = \Modules\Admin\Services\Helper\UserInfoHelper::getAuthUserInfo() /**/ ?>
+<span class="username username-hide-on-mobile"><?php echo e($userinfo->first_name); ?></span>
+<?php if(!empty($userinfo->avatar)): ?>
+<img alt="" class="img-circle" src="<?php echo e(URL::asset('img/'.$userinfo->id.'/'.$userinfo->avatar)); ?>"/>
+<?php else: ?>
+<img alt="" class="img-circle" src="<?php echo e(URL::asset('images/default-user-icon-profile.png ')); ?>"/>
+<?php endif; ?>

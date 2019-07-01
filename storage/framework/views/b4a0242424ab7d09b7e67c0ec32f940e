@@ -1,0 +1,13 @@
+<?php echo Form::open(); ?>
+
+
+<?php if(!empty(Auth::user()->hasAdd)): ?>
+<?php echo Form::select('size', [ '' => trans('admin::messages.select-name',['name' => trans('admin::controller/system-email.system-email') ]) , trans('admin::messages.add-name', ['name'=>trans('admin::controller/system-email.system-email')]) => [ 'new' => trans('admin::messages.add-name', ['name'=>trans('admin::controller/system-email.system-email')]) ]] + $emails, null, ['class'=>'select2me form-control','id'=>'selectEmailTemplate']); ?>
+
+<?php else: ?>
+<?php echo Form::select('size', [ '' => 'Select' ] + $emails, null, ['class'=>'select2me form-control','id'=>'selectEmailTemplate']); ?>
+
+<?php endif; ?>
+
+<span class="help-block"><?php echo trans('admin::controller/system-email.name-help'); ?></span>
+<?php echo Form::close(); ?>
